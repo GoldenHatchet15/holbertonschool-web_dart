@@ -15,3 +15,12 @@ git commit -m "$commit_message"
 git push 
 
 echo "✅ Changes pushed successfully!"
+
+# Print a happy face using echo
+echo "       *****       "
+echo "     * ~   ~  *    "
+echo "   *   O   O   *   "
+echo "  *      ^      *  "
+echo "   *   \___/   *   "
+echo "     *       *     "
+echo "       *****       "
