@@ -1,11 +1,11 @@
 import '6-password.dart'; // Import Password class
 
 class User extends Password {
-  int id;
-  String name;
+  int id = 0;
+  String name = "";
   int age;
   double height;
-  String user_password; // New property
+  String user_password = ""; // New property
 
   // Constructor
   User({required this.id, required this.name, required this.age, required this.height, required this.user_password})
