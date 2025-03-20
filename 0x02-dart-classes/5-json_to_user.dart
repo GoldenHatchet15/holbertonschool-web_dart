@@ -1,13 +1,14 @@
 class User {
-  int id;
-  String name;
-  int age;
-  double height;
+  int id=0;
+  String name = "";
+  int age = 0;
+  double height = 0.0;
 
-  // ✅ Constructor with named parameters
+
+  // Constructor with named parameters
   User({required this.id, required this.name, required this.age, required this.height});
 
-  // ✅ Convert object to JSON (Map representation)
+  // Convert object to JSON (Map representation)
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -17,17 +18,17 @@ class User {
     };
   }
 
-  // ✅ Create User object from JSON (Map)
+  // Create User object from JSON (Map)
   static User fromJson(Map<dynamic, dynamic> userJson) {
     return User(
-      id: userJson['id'] as int,
-      name: userJson['name'] as String,
-      age: userJson['age'] as int,
-      height: (userJson['height'] as num).toDouble(), // Ensures height is a double
+      id: userJson['id'], 
+      name: userJson['name'],
+      age: userJson['age'],
+      height: userJson['height'],
     );
   }
 
-  // ✅ Override toString() for formatted output
+  // Override toString() for formatted output
   @override
   String toString() {
     return "User(id : $id ,name: $name,  age: $age, height: $height)";
