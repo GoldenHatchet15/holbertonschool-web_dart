@@ -1,15 +1,30 @@
 import '6-password.dart'; // Import Password class
 
 class User extends Password {
-  int id = 0;
-  String name = "";
+  int id;
+  String name;
   int age;
   double height;
-  String user_password = ""; // New property
+  String _userPassword; // Private property to manage user_password correctly
 
   // Constructor
-  User({required this.id, required this.name, required this.age, required this.height, required this.user_password})
-      : super(password: user_password); // Call parent constructor
+  User({
+    required this.id,
+    required this.name,
+    required this.age,
+    required this.height,
+    required String user_password,
+  })  : _userPassword = user_password,
+        super(password: user_password); // Pass password to Password class
+
+  // Getter for `user_password`
+  String get user_password => _userPassword;
+
+  // Setter for `user_password` (Ensures both `user_password` and `_password` are updated)
+  set user_password(String newPassword) {
+    _userPassword = newPassword; // Updates `user_password`
+    super.password = newPassword; // Updates `_password` in `Password` class
+  }
 
   // Convert object to JSON
   Map<String, dynamic> toJson() {
@@ -28,7 +43,7 @@ class User extends Password {
       name: userJson['name'] ?? "Unknown",
       age: userJson['age'] ?? 0,
       height: userJson['height'] ?? 0.0,
-      user_password: userJson['user_password'] ?? "", // Null-safe default value
+      user_password: userJson['user_password'] ?? "", // Null check
     );
   }
 

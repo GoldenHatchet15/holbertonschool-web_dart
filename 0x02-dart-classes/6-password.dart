@@ -1,20 +1,12 @@
 class Password {
-  // Private property
-  String _password = "";
+  // Private password property
+  String _password;
 
+  // Constructor with Null Check
+  Password({required String password}) : _password = password ?? "";
 
-
-  // Constructor
-  Password({required String password}) {
-    _password = password;
-  }
-
-
-
-  // Getter
+  // Getter for password
   String get password => _password;
-
-
 
   // Setter for password with validation
   set password(String newPassword) {
@@ -25,8 +17,7 @@ class Password {
     }
   }
 
-
-  // Check if the password is valid
+  // Check if password is valid
   bool isValid() {
     return _password.length >= 8 &&
            _password.length <= 16 &&
@@ -35,9 +26,7 @@ class Password {
            _password.contains(RegExp(r'[0-9]'));   // At least one number
   }
 
-  
-
-  // Override toString method
+  // Override toString()
   @override
   String toString() {
     return "Your Password is: $_password";
