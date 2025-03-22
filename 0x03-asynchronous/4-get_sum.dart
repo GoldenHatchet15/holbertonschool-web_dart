@@ -30,7 +30,7 @@ Future<double> calculateTotal() async {
         return -1;
       }
 
-      total += decodedPrice.toDouble();
+      total += decodedPrice;
     }
 
     return total;
